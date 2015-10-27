@@ -19,20 +19,17 @@ data = File.open(path)
 			@people.push(User.new(elem))  
 		end
 		@people.delete_at(0)
-
-
 	end
+  
 	def initialize 
 		@people = []
 
 	end
 
 	def method_missing (call, name)  
-   #  p 'asdfgh'
-    #  p @people[2].age
+  
      p @people.sort_by! {|elem| elem.send(name) }
        
-	
   end
 
 end
