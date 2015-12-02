@@ -14,6 +14,8 @@
       <th width="800">Title</th>
       <th width="800">Content</th>
       <th width="300">Comments</th>
+      <th width="300">Created_at</th>
+
       <th colspan="3" width="900"></th>
 
     </tr>
@@ -26,6 +28,7 @@
         <td><%= post.title %></td>
         <td><%= post.content %></td>
         <td><%= post.comments.length %></td>
+        <td><%= post.created_at %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>

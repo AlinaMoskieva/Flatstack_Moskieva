@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
-    @post.how_many_comments=@post.comments.length
+    @post.how_many_comments = @post.comments.length
 
     redirect_to post_path(@post)
   end
