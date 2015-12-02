@@ -1,8 +1,29 @@
 Rails.application.routes.draw do
+
+  devise_for :users#, controllers: { sessions: "users/sessions" }
+  resources :users
+
   resources :posts do
-   resources :comments
-end
-  root :to => "posts#index"
+   resources :comments, shallow: true
+  end
+
+
+  root to: "posts#index"
+  #devise_scope :user do get "/user/sign_in" => "devise/sessions#new" end
+  get '/user/sign_in', to: 'devise/sessions#new'
+  get 'posts/new', to: 'posts#new'
+
+
+ #root to: "users#new"
+
+
+ #get 'persons/profile', as: 'user_root'
+
+
+
+
+
+ #root to: "Devise::SessionsController#create"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

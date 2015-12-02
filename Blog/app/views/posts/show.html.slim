@@ -1,0 +1,45 @@
+.row
+ .medium-6.column
+
+    p#notice = notice
+
+    p
+      strong Name:
+      br
+      = current_user.email
+
+
+    p
+      strong Title:
+      br
+      = @post.title
+
+
+    p
+     strong Content:
+     br
+     = @post.content
+    .right
+     = link_to 'Edit post', edit_post_path(@post)
+    br
+    br
+    p
+      strong Comments
+      - @post.comments.each do |comment|
+       = render comment
+
+    p
+      strong Add a comment
+      = form_for([@post, Comment.new]) do |f|
+        p
+         strong Commenter:
+         = current_user.email
+
+        p
+         strong Comment
+        br
+        = f.text_area :body
+        p
+         = f.submit
+
+    = link_to 'Back', posts_path

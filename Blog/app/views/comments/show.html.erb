@@ -2,16 +2,19 @@
 
 <p>
   <strong>Commenter:</strong>
-  <%= @comment.commenter %>
+  <br>
+ <strong><%= current_user.email %></strong>
 </p>
 
 <p>
   <strong>Body:</strong>
+  <br>
   <%= @comment.body %>
 </p>
 
 <p>
   <strong>Post:</strong>
+  <br>
   <%= @comment.post %>
 </p>
 

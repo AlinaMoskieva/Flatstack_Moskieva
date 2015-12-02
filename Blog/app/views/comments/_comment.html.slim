@@ -1,0 +1,17 @@
+.table
+ .thead
+  .tr
+   .comment data-id=comment
+      .comment.nickname
+       .strong Commenter
+      =  current_user.email
+   br
+      .comment.text
+        = comment.body
+
+   br
+
+   .right
+      =link_to "delete", comment, method: :delete, remote: true
+  br
+  br
