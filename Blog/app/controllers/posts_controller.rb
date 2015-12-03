@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   def create
 
    # @post = Post.new(post_params)
-    @post = current_user.posts.new(params.require(:post).permit( current_user.email, :title, :content))
+    @post = current_user.posts.new(params.require(:post).permit(:title, :content))
     # binding.pry
     respond_to do |format|
       if @post.save
@@ -63,7 +63,6 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.js
-      format.json { head :no_content }
     end
   end
 

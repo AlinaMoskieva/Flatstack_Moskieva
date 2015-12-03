@@ -28,7 +28,6 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
-    @post.how_many_comments = @post.comments.length
 
     redirect_to post_path(@post)
   end
@@ -52,7 +51,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to @comment.post}# comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to @comment.post}
       format.json { head :no_content }
     end
   end

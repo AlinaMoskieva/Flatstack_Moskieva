@@ -2,11 +2,11 @@
  .medium-6.column
 
     p#notice = notice
-
+    h4 Post
     p
-      strong Name:
+      strong Was written by:
       br
-      = current_user.email
+      = @post.user.email
 
 
     p
@@ -24,7 +24,7 @@
     br
     br
     p
-      strong Comments
+      h4 Comments
       - @post.comments.each do |comment|
        = render comment
 
@@ -33,7 +33,7 @@
       = form_for([@post, Comment.new]) do |f|
         p
          strong Commenter:
-         = current_user.email
+         =@post.user.email
 
         p
          strong Comment
