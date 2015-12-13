@@ -24,13 +24,13 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-        @comment = current_user.comments.build(comment_params)
-        @comment.post_id = params[:post_id]
-        @comment.save
-        respond_to do |format|
-          format.html { redirect_to Post.find(params[:post_id]) }
-          format.js
-        end
+    @comment = current_user.comments.build(comment_params)
+    @comment.post_id = params[:post_id]
+    @comment.save
+     respond_to do |format|
+      format.html { redirect_to Post.find(params[:post_id]) }
+      format.js
+    end
   end
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
