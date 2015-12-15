@@ -10,8 +10,11 @@
         = comment.body
 
    br
+   - if comment.user == current_user
+      .right
 
-   .right
-      =link_to "delete", comment, method: :delete, remote: true
+       = link_to 'Edit post', edit_post_path(@post)
+       br
+       =link_to "delete", comment, method: :delete, remote: true
   br
   br

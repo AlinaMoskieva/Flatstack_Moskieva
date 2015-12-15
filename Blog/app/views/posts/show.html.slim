@@ -19,8 +19,11 @@
      strong Content:
      br
      = @post.content
-    .right
-     = link_to 'Edit post', edit_post_path(@post)
+     - if @post.user == current_user
+      .right
+
+       = link_to 'Edit post', edit_post_path(@post)
+
     br
     br
     p

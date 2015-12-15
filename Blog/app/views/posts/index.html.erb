@@ -6,39 +6,26 @@
 <h1>Listing Posts</h1>
 <br>
 <br>
-
-<table class="hover">
-  <thead>
-    <tr>
-      <th width="300">Name</th>
-      <th width="800">Title</th>
-      <th width="800">Content</th>
-      <th width="300">Comments</th>
-      <th width="300">Created_at</th>
-
-      <th colspan="3" width="900"></th>
-
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container featured-grid">
+ <div class="inside">
+  <ul class="grid">
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.user.email %></td>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= post.comments.length %></td>
-        <td><%= post.created_at %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
+    <li>
+    <h5><%= link_to post.title, post_path(post) %></h5>
+      <a ><%= post.user.email %></a>
+       <span class="date"><%= post.created_at %></span><br>
+         <span class="right"><%= link_to 'Read more', post %></span>
+         <br>
+         <%if post.user == current_user %>
+          <span class="right"> <%=link_to 'Edit', edit_post_path(post) %>
+           <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+         <% end %>
+      </a>
+    </li>
+    </ul>
+  </div>
+</div>
+<br><br><br>
+     <% end %>
 </div>
 </div>
