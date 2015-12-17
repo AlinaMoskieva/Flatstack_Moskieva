@@ -1,3 +1,4 @@
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="row">
   <div class="medium-6 columns">
 
@@ -12,19 +13,27 @@
     <% @posts.each do |post| %>
     <li>
     <h5><%= link_to post.title, post_path(post) %></h5>
-      <a ><%= post.user.email %></a>
+      <span ><%= post.user.email %></span>
        <span class="date"><%= post.created_at %></span><br>
+       <span>Comments: <%= post.comments.size%></span>
          <span class="right"><%= link_to 'Read more', post %></span>
          <br>
          <%if post.user == current_user %>
           <span class="right"> <%=link_to 'Edit', edit_post_path(post) %>
-           <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+           <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></span><br>
          <% end %>
-      </a>
-    </li>
+         <br>
+         <!-- Twitter -->
+            <a href="http://twitter.com/home?status=SHAREMESSAGE" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+             <!-- Facebook -->
+            <a href="https://www.facebook.com/sharer/sharer.php?u=SHAREMESSAGE" title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+            <!-- LinkedIn -->
+            <a href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=SHAREMESSAGE" title="Share on LinkedIn" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a>
+            <a href="http://vk.com/share.php?url=http://mysite.com" target="_blank"><i class="fa fa-vk"></i>VK</a>
+
+         </li>
     </ul>
-  </div>
-</div>
+
 <br><br><br>
      <% end %>
 </div>
