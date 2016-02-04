@@ -1,0 +1,51 @@
+<%= form_for(@meeting) do |f| %>
+  <% if @meeting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
+
+      <ul>
+      <% @meeting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+
+<div class="small-12 columns">
+<div class="small-8 columns">
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :details %> <br>
+      <%= f.text_field :details %>
+    </div>
+    <div class="field">
+      <%= f.label :place %> <br>
+      <%= f.text_field :place %>
+    </div>
+    <div class="field">
+      <%= f.label :note %> <br>
+      <%= f.text_field :note %>
+    </div>
+    <br><br>
+
+
+<div class="small-4 columns ">
+  <div class="field">
+    <%= f.label :start_time %><br>
+    <%= f.datetime_select :start_time %>
+  </div>
+</div>
+   <div class="actions">
+   <div class="small-4 columns small-centered">
+    <%= f.submit  %>
+   </div>
+<% end %>
+</div>
+</div>
+</div>
+

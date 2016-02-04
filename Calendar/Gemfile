@@ -45,5 +45,6 @@ group :development do
   gem 'spring'
   gem 'devise'
   gem 'foundation-rails'
+  gem "simple_calendar", "~> 2.0"
 end
 

@@ -1,0 +1,33 @@
+<head>
+  <link href="style.css" rel="stylesheet">
+</head>
+<p id="notice"><%= notice %></p>
+
+<h1 align="center">Event Listing</h1>
+<div class="row">
+  <div class="small-13 columns small-centered">
+  <% @meetings.each do |meeting| %>
+    <article class="event">
+          <div class="event-date">
+             <p class="event-month"><%= meeting.start_time.strftime("%b")%></p>
+             <p class="event-day"><%= meeting.start_time.strftime("%d")%></p>
+           </div>
+
+          <div class="event-desc">
+            <h4 class="event-desc-header"><%= meeting.name %></h4>
+            <p class="event-desc-detail"><span class="event-desc-time"></span><%= meeting.details %></p>
+             <%= link_to 'Show', meeting %><br><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+           <td>
+          </div>
+      </article>
+     <br>
+     <% end %>
+     <%= link_to 'New Meeting', new_meeting_path %></a>
+
+<h1> TODO:</h1>
+<ul>
+ <li>user page</li>
+
+ <li>design</li>
+</ul>
+
