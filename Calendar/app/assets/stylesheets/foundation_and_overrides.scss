@@ -4,6 +4,7 @@
 
 //
 
+
 // Table of Contents
 // Foundation Settings
 
@@ -437,7 +438,7 @@ $include-html-global-classes: $include-html-classes;
 
 // 05. Buttons
 // - - - - - - - - - - - - - - - - - - - - - - - - -
-
+// $button-fill: hollow;
 // $include-html-button-classes: $include-html-classes;
 
 // We use these to build padding for buttons.
@@ -1492,3 +1493,4 @@ $include-html-global-classes: $include-html-classes;
 // $include-legacy-visibility-classes: true;
 
 @import 'foundation';
+$button-fill: hollow;

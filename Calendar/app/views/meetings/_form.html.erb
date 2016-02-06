@@ -1,3 +1,6 @@
+<head>
+  <link href="style.css" rel="stylesheet">
+</head>
 
 <%= form_for(@meeting) do |f| %>
   <% if @meeting.errors.any? %>
@@ -12,10 +15,7 @@
     </div>
   <% end %>
 <div class="row">
-
-<div class="small-12 columns">
-<div class="small-8 columns">
-
+ <div class="small-6 columns">
     <div class="field">
       <%= f.label :name %><br>
       <%= f.text_field :name %>
@@ -31,23 +31,28 @@
     <div class="field">
       <%= f.label :note %> <br>
       <%= f.text_field :note %>
-    </div>
-    <br><br>
-
-
-<div class="small-4 columns ">
+</div>
+</div>
+<div class="small-6 columns ">
   <div class="field">
     <%= f.label :start_time %><br>
     <%= f.datetime_select :start_time %>
+      <br><br><br>
   </div>
+  </div>
+  <br><br><br>
+
+
+   <div class="actions" align="center">
+
+
+    <%= f.submit "CREATE MEETING", class: "secondary button"  %>
+    <%= link_to 'return', meetings_path, class: " secondary button" %>
+
+   </div>
+    <% end %>
+</div>
+</div>
 </div>
 
-   <div class="actions">
-   <div class="small-4 columns small-centered">
-    <%= f.submit  %>
-   </div>
-<% end %>
-</div>
-</div>
-</div>
 
