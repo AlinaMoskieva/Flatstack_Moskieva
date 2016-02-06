@@ -1,31 +1,39 @@
 <p id="notice"><%= notice %></p>
+<br><br><br><br>
+<div class="row">
+
+  <div class="small-8 medium-6 large-5 columns">
+
 
 <p>
-  <strong>Name:</strong>
+  <div class="field">
+    <strong>Name:</strong><br>
   <%= @meeting.name %>
+  </div>
+
 </p>
 
 <p>
-  <strong>Start time:</strong>
+  <strong>Start time:</strong><br>
   <%= @meeting.start_time %>
 </p>
 
 <p>
-  <strong>Details:</strong>
+  <strong>Details:</strong><br>
   <%= @meeting.details %>
 </p>
 <p>
-  <strong>Place:</strong>
+  <strong>Place:</strong><br>
   <%= @meeting.place %>
 </p>
 <p>
-  <strong>Note:</strong>
+  <strong>Note:</strong><br>
   <%= @meeting.note %>
 </p>
 <p>
   <strong>Created
   at:</strong>
-  <%= @meeting.created_at %>
+  <%= @meeting.created_at %><br>
 </p>
 <%= link_to 'Edit', edit_meeting_path(@meeting) %> |
 <%= link_to 'Back', meetings_path %>

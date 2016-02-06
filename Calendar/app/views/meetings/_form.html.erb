@@ -1,3 +1,4 @@
+
 <%= form_for(@meeting) do |f| %>
   <% if @meeting.errors.any? %>
     <div id="error_explanation">
@@ -40,6 +41,7 @@
     <%= f.datetime_select :start_time %>
   </div>
 </div>
+
    <div class="actions">
    <div class="small-4 columns small-centered">
     <%= f.submit  %>

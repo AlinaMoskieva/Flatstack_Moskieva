@@ -4,30 +4,50 @@
 <p id="notice"><%= notice %></p>
 
 <h1 align="center">Event Listing</h1>
+<br>
 <div class="row">
-  <div class="small-13 columns small-centered">
+  <div class="small-5 columns ">
   <% @meetings.each do |meeting| %>
     <article class="event">
           <div class="event-date">
              <p class="event-month"><%= meeting.start_time.strftime("%b")%></p>
-             <p class="event-day"><%= meeting.start_time.strftime("%d")%></p>
+             <p class="event-day"><%= meeting.start_time.strftime("%d")%><br></p><br>
            </div>
 
           <div class="event-desc">
             <h4 class="event-desc-header"><%= meeting.name %></h4>
             <p class="event-desc-detail"><span class="event-desc-time"></span><%= meeting.details %></p>
-             <%= link_to 'Show', meeting %><br><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+             <%= link_to 'Show', meeting %>
+              <br>
+             <%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' }%>
+                <br>
+
+             </p>
            <td>
           </div>
       </article>
      <br>
      <% end %>
-     <%= link_to 'New Meeting', new_meeting_path %></a>
 
-<h1> TODO:</h1>
-<ul>
- <li>user page</li>
+     </td>
+     </div>
+     </article>
+     <div class="small-7 columns">
 
- <li>design</li>
+
+ <%= month_calendar events: @meetings do |date, meetings| %>
+  <%= date.strftime("%d") %>
+  <% meetings.each do |meeting| %>
+    <div>
+      <ul>
+      <li><%= link_to meeting.name, meeting %>
+      </li>
+    </div>
+  <% end %>
+<% end %>
+  </div>
+<%= link_to 'New Meeting', new_meeting_path, class: "button expand secondary radius" %></a>
 </ul>
+
+
 
