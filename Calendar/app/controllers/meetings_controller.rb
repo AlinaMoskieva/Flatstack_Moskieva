@@ -5,7 +5,7 @@ class MeetingsController < ApplicationController
   # GET /meetings
   # GET /meetings.json
   def index
-    @meetings = Meeting.all.order(created_at: :asc)
+    @meetings =  current_user.meeting#.all.order(created_at: :asc)
   end
 
   # GET /meetings/1
@@ -15,7 +15,7 @@ class MeetingsController < ApplicationController
 
   # GET /meetings/new
   def new
-    @meeting = Meeting.new
+    @meeting = current_user.meeting.new
   end
 
   # GET /meetings/1/edit
@@ -25,7 +25,7 @@ class MeetingsController < ApplicationController
   # POST /meetings
   # POST /meetings.json
   def create
-    @meeting = Meeting.new(meeting_params)
+    @meeting = current_user.meeting.new(meeting_params)
 
     respond_to do |format|
       if @meeting.save
@@ -70,6 +70,6 @@ class MeetingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def meeting_params
-      params.require(:meeting).permit(:name, :start_time, :details, :note, :place)
+      params.require(:meeting).permit(:name, :user_id, :start_time, :details, :note, :place)
     end
 end
