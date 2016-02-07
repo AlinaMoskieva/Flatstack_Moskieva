@@ -8,6 +8,10 @@ class MeetingsController < ApplicationController
     @meetings =  current_user.meeting#.all.order(created_at: :asc)
   end
 
+  def all
+    @meetings = Meeting.all.order(created_at: :desc)
+
+  end
   # GET /meetings/1
   # GET /meetings/1.json
   def show

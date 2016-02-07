@@ -22,6 +22,7 @@
   </ul>
    <section class="top-bar-section">
     <ul class="right">
+      <li class=""><a href=""><%= link_to 'All Events', controller: "meetings", action: "all" %></a></li>
 
       <li class=""><a href=""><%= link_to 'New Meeting', new_meeting_path %></a></li>
       <li class=""><a href=""><%= link_to "Exit", destroy_user_session_path, method: :delete %></a</li>

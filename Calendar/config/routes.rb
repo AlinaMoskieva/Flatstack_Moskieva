@@ -10,6 +10,7 @@ Rails.application.routes.draw do
    get '/', to: 'meetings#index'
    get '/meetings', to: 'meetings#index'
    get '/user/sign_in', to: 'devise/sessions#new'
+   get '/all', to: 'meetings#all'
 
 
 
