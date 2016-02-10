@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
+  get 'users/edit'
+
   resources :meetings
+  #resources :users
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -11,6 +16,7 @@ Rails.application.routes.draw do
    get '/meetings', to: 'meetings#index'
    get '/user/sign_in', to: 'devise/sessions#new'
    get '/all', to: 'meetings#all'
+   get '/profile', to: 'users#show'
 
 
 
