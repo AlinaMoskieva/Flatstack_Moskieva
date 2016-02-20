@@ -18,6 +18,12 @@ class MeetingsController < ApplicationController
   def show
   end
 
+  def get_Calendar
+     @meetings =  current_user.meeting
+
+
+  end
+
   # GET /meetings/new
   def new
     @meeting = current_user.meeting.new
