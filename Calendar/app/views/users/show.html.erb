@@ -1,16 +1,26 @@
-<h3><%= @user.email %></h3>
-<p>
-  <strong>Your name:</strong><br>
-  <%= @user.name %>
-</p>
-<p>
-  <strong>Your email:</strong><br>
-  <%= @user.email %>
-</p>
-<p>
-  <strong>Your events</strong>
-  <%= @user.meeting.size %>
-</p>
-<%= link_to 'Edit', edit_user_path(@user) %>  |
+<div class="row">
+ <div class="small-7 small-centered columns">
+   <br>
+    <h3 align="center"><%= current_user.email %></h3>
+    <p> <% @user = current_user %>
+    <br>
+      <strong>Your name:</strong><br>
+      <%= @user.name %>
+    </p>
+    <br>
+    <p>
+      <strong>Your email:</strong><br>
+      <%= @user.email %>
+    </p>
+    <br>
+    <p>
+      <strong>Your events</strong><br>
+      <%= @user.meeting.size %>
+    </p>
+    <br>
+    <p align="center">
 
-<%= link_to 'Back', meetings_path %>
+    <%= link_to "Change your password", edit_user_registration_path, class: "small secondary allert button radius" %>
+
+    <%= link_to 'Back', meetings_path, class: "small secondary button radius" %></p>
+

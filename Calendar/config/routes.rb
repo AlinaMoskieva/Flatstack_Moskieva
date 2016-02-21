@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'user/edit'
 
   get 'user/show'
 
@@ -33,6 +32,11 @@ end
    get '/profile', to: 'users#show'
    get 'users/edit', to: 'users#edit'
    get '/all', :action=>"all", :controller=>"devise/meetings"
+   get 'user/edit', to: 'users#edit'
+   get '/profile', :action=>"show", :controller=>"devise/users"
+   #get '/editUserInfo', to: 'users#edit'
+  #get '/profile', :action=>"editUserInfo", :controller=>"users"
+
 
 
 

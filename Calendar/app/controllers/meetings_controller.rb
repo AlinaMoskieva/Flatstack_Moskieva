@@ -20,8 +20,6 @@ class MeetingsController < ApplicationController
 
   def get_Calendar
      @meetings =  current_user.meeting
-
-
   end
 
   # GET /meetings/new

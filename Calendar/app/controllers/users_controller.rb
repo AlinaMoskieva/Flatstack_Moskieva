@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def edit
      @user = current_user
   end
+
   def update_password
     @user = User.find(current_user.id)
     if @user.update_with_password(user_params)
@@ -42,6 +43,6 @@ class UsersController < ApplicationController
 
   def user_params
     # NOTE: Using `strong_parameters` gem
-    params.require(:user).permit(:password, :password_confirmation)
+    params.require(:user).permit(:password, :password_confirmation, :name )
   end
 end
