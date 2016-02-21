@@ -34,7 +34,7 @@ end
    get '/all', :action=>"all", :controller=>"devise/meetings"
    get 'user/edit', to: 'users#edit'
    get '/profile', :action=>"show", :controller=>"devise/users"
-   #get '/editUserInfo', to: 'users#edit'
+   get '/editUserInfo', to: 'users#editUserInfo'
   #get '/profile', :action=>"editUserInfo", :controller=>"users"
 
 
