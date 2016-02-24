@@ -35,6 +35,8 @@ end
    get 'user/edit', to: 'users#edit'
    get '/profile', :action=>"show", :controller=>"devise/users"
    get '/editUserInfo', to: 'users#editUserInfo'
+   get '/calendar', to: 'meetings#getCalendar'
+   get 'calendar', :action=>"getCalendar", :controller=>"devise/meetings"
   #get '/profile', :action=>"editUserInfo", :controller=>"users"
 
 

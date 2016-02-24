@@ -18,7 +18,8 @@ class MeetingsController < ApplicationController
   def show
   end
 
-  def get_Calendar
+
+  def getCalendar
      @meetings =  current_user.meeting
   end
 
