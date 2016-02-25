@@ -53,7 +53,14 @@
 
 
 <%= link_to 'current_user_show', controller: "users", action: "show", :id => current_user.id %><br>
+<% Time.zone='Moscow' %>
+<%= Time.zone.today %>
+
+<ul>TODo:
+ <li>Close Button</li>
+ <li>Time now </li>
+ <li>today events</li>
+</ul>
 
 
-TODo:Close Button
 
