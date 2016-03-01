@@ -6,31 +6,38 @@
 <br>
 <br>
 <div class="row">
-  <div class="small-5 columns ">
+ <div class=" small-centred columns ">
   <% @meetings.each do |meeting| %>
-    <article class="event">
-          <div class="event-date">
-             <p class="event-month"><%= meeting.start_time.strftime("%b")%></p>
-             <p class="event-day"><%= meeting.start_time.strftime("%d")%><br></p><br>
-           </div>
-
-          <div class="event-desc">
-            <h4 class="event-desc-header"><%= meeting.name %></h4>
-             <h6 >Autor is <%= meeting.user.email %> </h6>
-            <p class="event-desc-detail"><span class="event-desc-time"></span><%= meeting.details %></p>
-             <%= link_to 'Show', meeting %>
-              <br>
-
-                <br>
-
-             </p>
-           <td>
+   <div class="small-2 large-4 columns end">
+        <div class="callout-card primary">
+          <div class="card-label">
+            <div class="label-text">
+              All
+            </div>
           </div>
-      </article>
-     <br>
-     <% end %>
-     <%= link_to 'Back', meetings_path %>
 
-     </td>
+          <article class="event">
+          <div class="event-date" >
+             <p class="event-month" ><%= meeting.start_time.strftime("%b")%></p>
+             <p class="event-day"><%= meeting.start_time.strftime("%d")%></p>
+           </div>
+           </article>
+
+
+          <div class="callout-card-content">
+            <h3 class="lead" align="center"><%= meeting.name %></h3>
+            <p align="center"><%= link_to 'Show', meeting %>
+              <br>
+             <%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' }%>
+
+</p>
+          </div>
+        </div>
+      </div>
+     <% end %>
      </div>
-     </article>
+     </div>
+
+     <p align="center"><%= link_to 'Back', meetings_path, class: "small secondary button" %></p>
+
+

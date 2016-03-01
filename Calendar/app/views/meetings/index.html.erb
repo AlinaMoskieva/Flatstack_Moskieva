@@ -1,66 +1,124 @@
 <head>
   <link href="style.css" rel="stylesheet">
+  <!-- Put this script tag to the <head> of your page -->
+<script type="text/javascript" src="http://vk.com/js/api/share.js?93"
+ charset="windows-1251"></script>
 </head>
 <p id="notice"><%= notice %></p>
-<br>
-
-<h1 align="center">Event Listing</h1>
-<br>
-<br>
 <div class="row">
-  <div class="small-5 columns ">
-  <% @meetings.each do |meeting| %>
-    <article class="event">
-          <div class="event-date">
-             <p class="event-month"><%= meeting.start_time.strftime("%b")%></p>
-             <p class="event-day"><%= meeting.start_time.strftime("%d")%><br></p><br>
-           </div>
+  <div class=" small-centred columns ">
 
-          <div class="event-desc">
-            <h4 class="event-desc-header"><%= meeting.name %></h4>
-            <p class="event-desc-detail"><span class="event-desc-time"></span><%= meeting.details %></p>
-             <%= link_to 'Show', meeting %>
+<br>
+<h2 align="center">Today</h2>
+<% @meetings.each do |meeting| %>
+  <% if meeting.start_time >= Date.today and meeting.start_time < Date.tomorrow %>
+
+ <div class="small-2 large-4 columns end">
+        <div class="callout-card secondary">
+          <div class="card-label">
+            <div class="label-text">
+              Now
+            </div>
+          </div>
+
+          <article class="event">
+          <div class="event-date" >
+             <p class="event-month" ><%= meeting.start_time.strftime("%b")%></p>
+             <p class="event-day"><%= meeting.start_time.strftime("%d")%></p>
+           </div>
+           </article>
+
+
+          <div class="callout-card-content">
+            <h3 class="lead" align="center"><%= meeting.name %></h3>
+            <p align="center"><%= link_to 'Show', meeting %>
               <br>
              <%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' }%>
-                <br>
 
-             </p>
-           <td>
+</p>
           </div>
-      </article>
-     <br>
-     <% end %>
-
-     </td>
-     </div>
-     </article>
-     <div class="small-7 columns">
+        </div>
+      </div>
 
 
- <%= month_calendar events: @meetings do |date, meetings| %>
-  <%= date.strftime("%d") %>
-  <% meetings.each do |meeting| %>
-    <div>
-      <ul>
-      <li><%= link_to meeting.name, meeting %>
-      </li>
-    </div>
   <% end %>
 <% end %>
-  </div>
-<%= link_to 'New Meeting', new_meeting_path, class: "button expand secondary radius" %></a>
-</ul>
+</div>
+  <div class=" small-centred columns ">
+<br>
+<br>
+<h2 align="center">Actual events</h2>
+<br>
+<br>
+
+<% @meetings.each do |meeting| %>
+  <% if meeting.start_time > Date.today %>
+ <div class="small-2 large-4 columns end">
+        <div class="callout-card primary">
+          <div class="card-label">
+            <div class="label-text">
+              New
+            </div>
+          </div>
+
+          <article class="event">
+          <div class="event-date" >
+             <p class="event-month" ><%= meeting.start_time.strftime("%b")%></p>
+             <p class="event-day"><%= meeting.start_time.strftime("%d")%></p>
+           </div>
+           </article>
 
 
-<%= link_to 'current_user_show', controller: "users", action: "show", :id => current_user.id %><br>
-<% Time.zone='Moscow' %>
-<%= Time.zone.today %>
+          <div class="callout-card-content">
+            <h3 class="lead" align="center"><%= meeting.name %></h3>
+            <p align="center"><%= link_to 'Show', meeting %>
+              <br>
+             <%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' }%>
 
-<ul>TODo:
- <li>Close Button</li>
- <li>Time now </li>
- <li>today events</li>
-</ul>
+</p>
+          </div>
+        </div>
+      </div>
+  <% end %>
+<% end %>
+</div>
+  <div class=" small-centred columns ">
 
+
+<h2 align="center">History</h2>
+<br>
+<br>
+<% @meetings.each do |meeting| %>
+  <% if meeting.start_time < Date.today %>
+     <div class="small-2 large-4 columns end">
+        <div class="callout-card alert">
+          <div class="card-label">
+            <div class="label-text">
+              Old
+            </div>
+          </div>
+
+          <article class="event">
+          <div class="event-date" >
+             <p class="event-month" ><%= meeting.start_time.strftime("%b")%></p>
+             <p class="event-day"><%= meeting.start_time.strftime("%d")%></p>
+           </div>
+           </article>
+
+
+          <div class="callout-card-content">
+            <h3 class="lead" align="center"><%= meeting.name %></h3>
+            <p align="center"><%= link_to 'Show', meeting %>
+              <br>
+             <%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' }%>
+
+</p>
+          </div>
+        </div>
+      </div>
+  <% end %>
+<% end %>
+</div>
+</div>
 
 

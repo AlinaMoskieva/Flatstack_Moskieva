@@ -5,14 +5,17 @@ class MeetingsController < ApplicationController
 
   # GET /meetings
   # GET /meetings.json
+     def wrap(col = 10)
+        gsub(/(.{1,#{col}})( +|$\n?)|(.{1,#{col}})/, "\\1\\3\n")
+    end
   def index
     @meetings =  current_user.meeting#.all.order(created_at: :asc)
   end
 
   def all
     @meetings = Meeting.all.order(created_at: :desc)
-
   end
+
   # GET /meetings/1
   # GET /meetings/1.json
   def show
@@ -82,4 +85,7 @@ class MeetingsController < ApplicationController
     def meeting_params
       params.require(:meeting).permit(:name, :user_id, :start_time, :details, :note, :place)
     end
+  class String
+
+end
 end

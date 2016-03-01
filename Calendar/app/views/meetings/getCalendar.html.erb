@@ -1,21 +1,22 @@
-<div class="row">
- <div class="small- small-centered columns">
-  <br>
-  <div class="new" align="center">
+<br>
   <h3 align="center"> Calendar for your planning </h3>
   <br>
+
+<div class="row">
+  <div class="small-13 small-centred columns  ">
    <%= month_calendar events: @meetings do |date, meetings| %>
-  <%= date.strftime("%d") %>
-  <% meetings.each do |meeting| %>
+   <p valign="top" align="center">
+     <%= link_to date.strftime("%d"), new_meeting_path %>
+    </p>
+   <% meetings.each do |meeting| %>
     <div>
       <ul>
-      <li><%= link_to meeting.name, meeting %>
+      <li><%= link_to meeting.name.slice(0,10)   , meeting %>
       </li>
     </div>
   <% end %>
 <% end %>
-<br>
-</div>
- </div>
-  <div class="new" align="center"><%= link_to 'New Meeting', new_meeting_path, class: " small button secondary radius" %></div>
+
+
+<%= link_to 'New Meeting', new_meeting_path, class: "button expand secondary radius" %></a>
 </div>

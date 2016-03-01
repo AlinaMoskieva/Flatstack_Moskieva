@@ -3,37 +3,38 @@
 <div class="row">
 
   <div class="small-8 medium-6 large-5 columns">
-
-
 <p>
   <div class="field">
     <strong>Name:</strong><br>
-  <%= @meeting.name %>
+  <p align="right"><%= @meeting.name %></p>
   </div>
 
 </p>
 
 <p>
   <strong>Start time:</strong><br>
-  <%= @meeting.start_time %>
+ <p align="right"> <%= @meeting.start_time %>
 </p>
 
 <p>
   <strong>Details:</strong><br>
-  <%= @meeting.details %>
+ <p align="right">
+
+ <%= @meeting.details %>
+
 </p>
 <p>
   <strong>Place:</strong><br>
-  <%= @meeting.place %>
+ <p align="right"> <%= @meeting.place %>
 </p>
 <p>
   <strong>Note:</strong><br>
-  <%= @meeting.note %>
+ <p align="right"> <%= @meeting.note %>
 </p>
 <p>
   <strong>Created
   at:</strong>
-  <%= @meeting.created_at %><br>
+<p align="right">  <%= @meeting.created_at %><br>
 </p>
 <% if @meeting.user_id == current_user.id %>
 <%= link_to 'Edit', edit_meeting_path(@meeting) %>  |
