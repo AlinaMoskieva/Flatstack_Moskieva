@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
-<br><br><br><br>
+<br><br>
 <div class="row">
-
-  <div class="small-8 medium-6 large-5 columns">
-<p>
+ <div class="small-7 small-centered columns">
+   <h3 align="center"> Details of meeting </h3><br><br>
   <div class="field">
     <strong>Name:</strong><br>
   <p align="right"><%= @meeting.name %></p>
@@ -13,30 +12,51 @@
 
 <p>
   <strong>Start time:</strong><br>
- <p align="right"> <%= @meeting.start_time %>
-</p>
+ <p align="right"> <%= @meeting.start_time.strftime("%H:%M %F") %>
+</p><br>
 
 <p>
   <strong>Details:</strong><br>
  <p align="right">
 
- <%= @meeting.details %>
+ <% if @meeting.details.eql?("") %>
+   <%= "not indicated" %>
+ <% else %>
+     <%= @meeting.details %>
+ <% end %>
 
-</p>
+
+</p><br>
 <p>
   <strong>Place:</strong><br>
- <p align="right"> <%= @meeting.place %>
+ <p align="right">
+     <% if @meeting.place.eql?("") %>
+   <%= "not indicated" %>
+ <% else %>
+     <%= @meeting.place %>
+ <% end %>
 </p>
+<br>
 <p>
   <strong>Note:</strong><br>
- <p align="right"> <%= @meeting.note %>
-</p>
+ <p align="right">
+    <% if @meeting.note.eql?("") %>
+   <%= "not indicated" %>
+ <% else %>
+     <%= @meeting.note %>
+ <% end %>
+</p><br>
 <p>
   <strong>Created
   at:</strong>
-<p align="right">  <%= @meeting.created_at %><br>
+<p align="right">  <%= @meeting.created_at.strftime("%H:%M %F") %><br>
 </p>
+<br>
+
+
 <% if @meeting.user_id == current_user.id %>
-<%= link_to 'Edit', edit_meeting_path(@meeting) %>  |
+<p align="center">
+<%= link_to 'Edit', edit_meeting_path(@meeting), class: "small secondary button radius" %>
 <% end%>
-<%= link_to 'Back', meetings_path %>
+
+<%= link_to 'Back', meetings_path, class: "small secondary button radius" %></p>
