@@ -1,5 +1,5 @@
 class User
-	attr_accessor :name, :age, :phone, :address, :comments
+  attr_accessor :name, :age, :phone, :address, :comments
   
   def initialize(data)
     data_arr = data.split(',')
@@ -12,28 +12,24 @@ class User
 end
 
 class UserCollection
-	
-    def open_data(path)
-data = File.open(path)
-		while (elem=data.gets)
-			@people.push(User.new(elem))  
-		end
-		@people.delete_at(0)
-	end
+  def open_data(path)
+    data = File.open(path)
+    
+    while (elem=data.gets)
+	@people.push(User.new(elem))  
+    end
+    @people.delete_at(0)
+  end
   
-	def initialize 
-		@people = []
-
-	end
-
-	def method_missing (call, name)  
-  
-     p @people.sort_by! {|elem| elem.send(name) }
-       
+  def initialize 
+    @people = []
   end
 
+  def method_missing(call, name)  
+     p @people.sort_by! {|elem| elem.send(name) }
+  end
 end
  
-UserColl = UserCollection.new
-UserColl.open_data('/Users/Moskieva/Desktop/ToGitHub/data.csv')
-UserColl.sortplz('age')
+user_collection = UserCollection.new
+user_collection.open_data("/Users/Moskieva/Desktop/ToGitHub/data.csv")
+user_collection.sortplz("age")
